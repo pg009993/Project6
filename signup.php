@@ -9,28 +9,27 @@
 		<div>
 			  <form action="" method="post">
 
-            <p><input id="name" name="name" type="text" placeholder="Name: "></p>
-
-         
+			First Name:
+			<input type="text" name ="name"><br>
              Gender: 
              <input type="radio" name="gender"
 			<?php if (isset($gender) && $gender=="female") echo "checked";?>
 			value="female">Female
 			<input type="radio" name="gender"
 			<?php if (isset($gender) && $gender=="male") echo "checked";?> 
-			value="male">Male
+			value="male">Male<br>
+
+            Age: <input id="age" name="age" type="text" "><br>
+
+            Personality type: <input id="personality type" name="personality type" type="text"><br> 
+
+            Favorite OS: <input id="favorite os" name="favorite os" type="text"><br>
+
+             Seeking type: <input id="seeking age" name="seeking age" type="text"><br>
 
 
-
-            <p><input id="age" name="age" type="text" placeholder="Age: "></p>
-
-            <p><input id="personality type" name="personality type" type="text" placeholder="Personality type: "></p>
-
-            <p><input id="favorite os" name="favorite os" type="text" placeholder="Favorite OS:"></p>
-
-             <p><input id="seeking age" name="seeking age" type="text" placeholder="Seeking Age:"></p>
-
-            </form>
+			<input type="submit" name="sign up" value="Sign Up">            
+			</form>
 			<p>
 				Results and page (C) Copyright GeekLove Inc.
 			</p>
