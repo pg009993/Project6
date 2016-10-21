@@ -7,10 +7,14 @@
     
     <body>
 		<div>
+
+		New User Signup: <br>
 			  <form action="" method="post">
 
 			First Name:
-			<input type="text" name ="name"><br>
+			<input type="text" name ="name">
+			<br>
+
              Gender: 
              <input type="radio" name="gender"
 			<?php if (isset($gender) && $gender=="female") echo "checked";?>
@@ -19,14 +23,24 @@
 			<?php if (isset($gender) && $gender=="male") echo "checked";?> 
 			value="male">Male<br>
 
-            Age: <input id="age" name="age" type="text" "><br>
+            Age: <input id="age" name="age" type="text" ">
+            <br>
+            
+            Personality type: <input id="personality type" name="personality type" type="text">
 
-            Personality type: <input id="personality type" name="personality type" type="text"><br> 
+            (<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)
+            <br> 
+         
+            Favorite OS: <select>
+            	<option>Windows</option>
+            	<option>Mac OS X</option>
+            	<option>Linux</option>
 
-            Favorite OS: <input id="favorite os" name="favorite os" type="text"><br>
-
-             Seeking type: <input id="seeking age" name="seeking age" type="text"><br>
-
+            </select>
+            <br>
+            
+            Seeking age: <input id="seeking age" name="seeking age" type="text">
+            <br>
 
 			<input type="submit" name="sign up" value="Sign Up">            
 			</form>
