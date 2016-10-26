@@ -47,6 +47,8 @@ Name:
     
     <body>
      
+        <?php include("top.html"); ?>
+        
         <form action="matches-submit.php" method="get">
             
             <fieldset>
@@ -65,7 +67,9 @@ Name:
             </fieldset>
             
         </form>
-                
+               
+        <?php include("bottom.html"); ?>
+        
     </body>
     
 </html>
