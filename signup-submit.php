@@ -17,7 +17,7 @@
         $uName = $_POST["name"];
         $uGender = $_POST["gender"];
         $uAge = $_POST["age"];
-        $uPersonality = $_POST["personality"];
+        $uPersonality = $_POST["persona"];
         $uOS = $_POST["OS"];
         $uMinAge = $_POST["minage"];
         $uMaxAge = $_POST["maxage"];
@@ -28,10 +28,22 @@
         $AgeRegex = "/^[0-9][0-9]?$/";
         $GenderRegex = "/^([M]|[F])$/";
         $PersonalityRegex = "/^([I|E][N|S][F|T][J|P])$/";
-
         
-        if($uName == $blank || (!(preg_match($AgeRegex, $uAge))) || (!(preg_match($GenderRegex, $uGender))) || (!(preg_match($PersonalityRegex, $uPersonality))) || !($uMinAge <= $uMaxAge) || (!(preg_match($AgeRegex, $uMinAge))) || (!(preg_match($AgeRegex, $uMaxAge))) ){
-            echo "ERROR! Go to previous page and refresh; enter information again.\n";
+        if($uName === $blank || (!(preg_match($AgeRegex, $uAge))) || (!(preg_match($GenderRegex, $uGender))) || (!(preg_match($PersonalityRegex, $uPersonality))) || !($uMinAge <= $uMaxAge) || (!(preg_match($AgeRegex, $uMinAge))) || (!(preg_match($AgeRegex, $uMaxAge))) ){
+            echo "ERROR! Invalid inputs! Go to previous page and refresh; enter information again.\n";
+            include("bottom.html");
+            exit;
+        }
+        
+        $textFile = file_get_contents("singles.txt");
+        $singles = explode("\n", $textFile);
+        foreach ($singles as $people) {
+            $userInfo = explode(",", $people);
+            if($userInfo[0] === $uName){
+                echo "ERROR! User with that name already exists! Go to previous page and refresh; enter information again.\n";
+                include("bottom.html");
+                exit;
+            }
         }
         
         $uData = $uName;

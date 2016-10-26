@@ -104,7 +104,7 @@ function printMatches($theMatches) {
 }
 
 function getImageFileName($name) {
-    $string = 'Images/';
+    $string = 'images/';
     $array = explode(' ', strtolower($name));
     $length = count($array);
     $index = 0;
