@@ -6,7 +6,7 @@
 //Variables
 $textFile = file_get_contents("singles.txt");
 $singles = explode("\n", $textFile);
-$notInFile = false;
+$notInFile = true;
 
 //Get User Information
 $userName = $_GET["name"];
@@ -28,8 +28,17 @@ $userInfo = array();
 foreach ($singles as $people) {
     $userInfo = explode(",", $people);
     if ($userInfo[0] == $userName) {
+        $notInFile = false;
         break;
     }
+}
+
+if($notInFile){
+    echo "You entered a name that is not registered";
+    echo "<br/><a href=\"matches.php\">try again.</a>";
+    echo "<br/><a href=\"signup.php\">signup.</a>";
+    include("bottom.html");
+    exit; 
 }
 
 //Function to check personality match
