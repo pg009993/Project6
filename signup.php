@@ -12,7 +12,7 @@
 
 		<div>
 
-            <form action="signup-submit.php" method="post">
+            <form action="signup-submit.php" method="post" enctype="multipart/form-data">
                 <fieldset>
 
                 <legend>New User Signup:</legend>
@@ -57,7 +57,7 @@
                         </li>
                         
                         <li>
-                            <input type="file" name="photoUpload">
+                            <input type="file" name="fileToUpload" id="fileToUpload">
                         </li>
                         
                     </ul>

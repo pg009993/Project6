@@ -1,7 +1,6 @@
 <?php include("top.html"); ?>
 
 
-
 <?php
 //Variables
 $textFile = file_get_contents("singles.txt");
@@ -17,10 +16,10 @@ $userN = $userName;
 $userN = trim($userN);
 if(strlen($userN) === 0){
     
-echo "You entered a blank name, please ";
-echo "<a href=\"matches.php\">try again.</a>";
-include("bottom.html");
-exit; 
+    echo "You entered a blank name, please ";
+    echo "<a href=\"matches.php\">try again.</a>";
+    include("bottom.html");
+    exit; 
 
 }
 
@@ -104,7 +103,7 @@ function printMatches($theMatches) {
 }
 
 function getImageFileName($name) {
-    $string = 'images/';
+    $string = 'Images/';
     $array = explode(' ', strtolower($name));
     $length = count($array);
     $index = 0;

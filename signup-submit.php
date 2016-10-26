@@ -13,7 +13,6 @@
         <?php include("top.html"); ?>
 
         <?php
-        phpinfo();
         $uName = $_POST["name"];
         $uGender = $_POST["gender"];
         $uAge = $_POST["age"];
@@ -44,27 +43,60 @@
             }
         }
 
-        if (isset($_POST["photoUpload"])) {
-            $target_file = getImageFileName($_POST["photoUpload"]);
-            echo "here";
-            echo $_FILES["fileToUpload"]["tmp_name"];
-            echo "here";
-
-            if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo "ERROR! there was an error uploading your file.";
-            } 
+        
+        
+//        if (isset($_POST["photoUpload"])) {
+//            $target_file = getImageFileName($_POST["photoUpload"]);
+//            echo $_FILES["fileToUpload"]["tmp_name"];
+//
+//            if (!move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+//                echo "ERROR! there was an error uploading your file.";
+//            } 
+//        }
+        
+        // The following lines upload an image into the Images directory
+        $target_directory = "Images/";
+        $target_file = $target_directory . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                echo "ERROR! File is not an image.";
+                $uploadOk = 0;
+                exit;
+            }
+        
+        if (file_exists($target_file)) { // check if image already exists...
+            echo "Sorry, that image already exists.";
+            $uploadOk = 0;
+            exit;
         }
 
-        $uData = $uName;
+        if ($uploadOk == 0) {
+            echo "Sorry, your image was not uploaded.";
+            exit;
+            // if everything is ok, try to upload file
+        } else { // UPLOADING IMAGE HERE
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                echo "";
+            } else {
+                echo "Sorry, there was an error uploading your image.";
+                exit;
+            }
+        }
+        
 
+        $uData = $uName;
         foreach ($_POST as $key => $value) { // adds each entry in the form
-            if ($key == "name") {
+            if ($key != "name") {
                 $uData = $uData . "," . $value; // append comma and entry
             }
         }
 
         function getImageFileName($name) {
-            $string = 'images/';
+            $string = 'Images/';
             $array = explode(' ', strtolower($name));
             $length = count($array);
             $index = 0;
@@ -78,11 +110,15 @@
             $string = $string . '.jpg';
             return $string;
         }
-
+        
+        
         // Appends new entry in singles.txt (assuming permission is allowed)
-        //file_put_contents("singles.txt", "\n".$uData, FILE_APPEND);
+        file_put_contents("singles.txt", "\n".$uData, FILE_APPEND);
         ?>
 
+        
+        
+        
         <div>
 
             <h1>Thank you!</h1>
