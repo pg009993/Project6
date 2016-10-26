@@ -16,8 +16,12 @@ $userName = $_GET["name"];
 $userN = $userName; 
 $userN = trim($userN);
 if(strlen($userN) === 0){
+    
 echo "You entered a blank name, please ";
 echo "<a href=\"javascript:history.go(-1)\">try again.</a>";
+include("bottom.html");
+exit;    
+
 }
 
 $userInfo = array();
