@@ -62,7 +62,7 @@
             
                         <li>
                             <strong>Seeking age:</strong>
-                            <input type="text" name="minage" size="6" maxlength="2" value="min" />to<input type="text" name="maxage" size="6" maxlength="2" value="max" />
+                            <input type="text" name="minage" size="6" maxlength="2" placeholder="min"  />to<input type="text" name="maxage" size="6" maxlength="2" placeholder="max" />
                         </li>
                     </ul>
                         
