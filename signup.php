@@ -27,16 +27,7 @@
                             <label><input type="radio" name="gender" value="M" />Male</label>
                             <label><input type="radio" name="gender" value="F" checked="checked" />Female</label>
                         </li>
-
-<!--
-                Gender: 
-                <input type="radio" name="gender"
-                       <?php if (isset($gender) && $gender=="female") echo "checked";?>
-                       value="female">Female
-                <input type="radio" name="gender"
-                       <?php if (isset($gender) && $gender=="male") echo "checked";?> 
-                       value="male">Male<br>
--->
+                        
 
                         <li>
                             <strong>Age:</strong>
@@ -45,7 +36,7 @@
             
                         <li>
                             <strong>Personality type:</strong>
-                            <input type="text" name="persona" size="6" maxlength="4" />
+                            <input type="text" name="personality" size="6" maxlength="4" />
                             <a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">(Don't know your type?)</a>
                         </li>
 
@@ -64,6 +55,11 @@
                             <strong>Seeking age:</strong>
                             <input type="text" name="minage" size="6" maxlength="2" placeholder="min"  />to<input type="text" name="maxage" size="6" maxlength="2" placeholder="max" />
                         </li>
+                        
+                        <li>
+                            <input type="file" name="photoUpload">
+                        </li>
+                        
                     </ul>
                         
                     <input type="submit" value="Sign Up">
