@@ -55,8 +55,7 @@
 //        }
         
         // The following lines upload an image into the Images directory
-        $target_directory = "Images/";
-        $target_file = $target_directory . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = getImageFileName($uName);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
